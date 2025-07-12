@@ -4,5 +4,13 @@
     "gopls": {
       "command": "gopls"
     }
+  },
+  "providers": {
+    "local": {
+      "provider": "local",
+      "endpoint": "http://localhost:11434/v1",
+      "model": "llama3.2",
+      "apiKey": "dummy"
+    }
   }
 }

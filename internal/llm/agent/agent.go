@@ -731,6 +731,14 @@ func createAgentProvider(agentName config.AgentName) (provider.Provider, error) 
 		provider.WithSystemMessage(prompt.GetAgentPrompt(agentName, model.Provider)),
 		provider.WithMaxTokens(maxTokens),
 	}
+
+	// Add endpoint configuration for local provider
+	if model.Provider == models.ProviderLocal && providerCfg.Endpoint != "" {
+		opts = append(opts, provider.WithOpenAIOptions(
+			provider.WithOpenAIBaseURL(providerCfg.Endpoint),
+		))
+	}
+
 	if model.Provider == models.ProviderOpenAI || model.Provider == models.ProviderLocal && model.CanReason {
 		opts = append(
 			opts,

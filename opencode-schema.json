@@ -383,8 +383,17 @@
               "bedrock",
               "azure",
               "vertexai",
-              "copilot"
+              "copilot",
+              "local"
             ],
+            "type": "string"
+          },
+          "endpoint": {
+            "description": "OpenAI compatible API endpoint URL (for local and custom providers)",
+            "type": "string"
+          },
+          "model": {
+            "description": "Model name to use with the provider",
             "type": "string"
           }
         },

@@ -54,6 +54,8 @@ type Agent struct {
 type Provider struct {
 	APIKey   string `json:"apiKey"`
 	Disabled bool   `json:"disabled"`
+	Endpoint string `json:"endpoint,omitempty"`
+	Model    string `json:"model,omitempty"`
 }
 
 // Data defines storage configuration.

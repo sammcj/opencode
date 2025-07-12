@@ -22,7 +22,15 @@ const (
 )
 
 func init() {
-	if endpoint := os.Getenv("LOCAL_ENDPOINT"); endpoint != "" {
+	// Check for LOCAL_ENDPOINT environment variable for backwards compatibility
+	endpoint := os.Getenv("LOCAL_ENDPOINT")
+
+	// Also check for viper configuration
+	if endpoint == "" {
+		endpoint = viper.GetString("providers.local.endpoint")
+	}
+
+	if endpoint != "" {
 		localEndpoint, err := url.Parse(endpoint)
 		if err != nil {
 			logging.Debug("Failed to parse local endpoint",
