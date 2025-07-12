@@ -9,7 +9,7 @@
     "local": {
       "provider": "local",
       "endpoint": "http://localhost:11434/v1",
-      "model": "llama3.2",
+      "model": "qwen3:14b",
       "apiKey": "dummy"
     }
   }
